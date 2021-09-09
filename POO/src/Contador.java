@@ -55,6 +55,10 @@ public class Contador {
         }
     }
 
+    public void mostrar(Contador c){
+        System.out.println(c.getCont());
+    }
+
     public static void main(String[] args) {
 
         int n;
@@ -67,16 +71,16 @@ public class Contador {
 
         contador1.setCont(n);
         contador1.incrementar();
-        System.out.println(contador1.getCont());
+        contador1.mostrar(contador1);
 
         contador1.incrementar();
         contador1.incrementar();
 
-        System.out.println(contador1.getCont());
+        contador1.mostrar(contador1);
 
         contador1.decrementar();
 
-        System.out.println(contador1.getCont());
+        contador1.mostrar(contador1);
 
         Contador contador2 = new Contador(88);
 
@@ -84,6 +88,6 @@ public class Contador {
         contador2.incrementar();
         contador2.incrementar();
 
-        System.out.println(contador2.getCont());
+        contador2.mostrar(contador2);
     }
 }
