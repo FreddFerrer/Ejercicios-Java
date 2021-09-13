@@ -31,6 +31,8 @@ public class Libro {
         this.ejemplares = ejemplares;
         this.prestados = prestados;
         disponibles = ejemplares - prestados;
+
+
     }
 
     public void Prestamo() {
@@ -109,17 +111,23 @@ public class Libro {
         String titulo, autor;
         int ejemplares;
 
-        Libro libro1 = new Libro("1984", "Freddy Ferreira", 5, 1);
+        Libro libro1 = new Libro("1984", "Freddy Ferreira", 5, 5);
 
-        System.out.println("Libro 1:");
-        System.out.println("Titulo: " + libro1.getTitulo());
-        System.out.println("Autor: " + libro1.getAutor());
-        System.out.println("Ejemplares: " + libro1.getEjemplares());
-        System.out.println("Prestados: " + libro1.getPrestados());
-        System.out.println("Disponibles para prestar = " + libro1.getDisponibles());
-        System.out.println();
+        if (libro1.getPrestados() > libro1.getEjemplares()) {
+            System.out.println("ERROR, NO SE PUEDE TENER MAS LIBROS PRESTADOR QUE EJEMPLARES");
+        } else {
+            System.out.println("Libro 1:");
+            System.out.println("Titulo: " + libro1.getTitulo());
+            System.out.println("Autor: " + libro1.getAutor());
+            System.out.println("Ejemplares: " + libro1.getEjemplares());
+            System.out.println("Prestados: " + libro1.getPrestados());
+            System.out.println("Disponibles para prestar = " + libro1.getDisponibles());
+            System.out.println();
+        }
 
-        libro1.Devolucion();
+        if (libro1.getPrestados() < libro1.getEjemplares()) {
+            libro1.Devolucion();
+        }
 
         Libro libro2 = new Libro();
 
