@@ -1,3 +1,16 @@
+/*Crea una clase llamada Libro que guarde la información de cada uno de los libros de una biblioteca. La clase debe guardar el título del libro, autor, número de ejemplares del libro y número de ejemplares prestados. La clase contendrá los siguientes métodos:
+Constructor por defecto.
+Constructor con parámetros.
+Métodos Setters/getters
+Método préstamo que incremente el atributo correspondiente cada vez que se realice un préstamo del libro.
+No se podrán prestar libros de los que no queden ejemplares disponibles para prestar.
+Devuelve true si se ha podido realizar la operación y false en caso contrario.
+Método devolución que decremente el atributo correspondiente cuando se produzca la devolución de un libro.
+No se podrán devolver libros que no se hayan prestado.
+Devuelve true si se ha podido realizar la operación y false en caso contrario.
+Método toString para mostrar los datos de los libros. Este método se heredada de Object y lo debemos modificar
+ (override) para adaptarlo a la clase Libro.*/
+
 import java.util.Scanner;
 
 public class Libro {
@@ -17,6 +30,7 @@ public class Libro {
         this.autor = autor;
         this.ejemplares = ejemplares;
         this.prestados = prestados;
+        disponibles = ejemplares - prestados;
     }
 
     public void Prestamo() {
@@ -25,7 +39,7 @@ public class Libro {
         } else {
             prestados++;
             disponibles = ejemplares - prestados;
-            System.out.println("Prestamo realizado con exito");
+            System.out.println("PRESTAMO REALIZADO CON EXITO");
             System.out.println("ejemplares = " + ejemplares);
             System.out.println("prestados = " + prestados);
             System.out.println("disponibles para prestar = " + disponibles);
@@ -38,7 +52,7 @@ public class Libro {
         } else {
             prestados--;
             disponibles = ejemplares + prestados;
-            System.out.println("Devolucion realizada con exito");
+            System.out.println("DEVOLUCION REALIZADA CON EXITO");
             System.out.println("ejemplares = " + ejemplares);
             System.out.println("prestados = " + prestados);
             System.out.println("disponibles para prestar = " + disponibles);
@@ -102,28 +116,32 @@ public class Libro {
         System.out.println("Autor: " + libro1.getAutor());
         System.out.println("Ejemplares: " + libro1.getEjemplares());
         System.out.println("Prestados: " + libro1.getPrestados());
+        System.out.println("Disponibles para prestar = " + libro1.getDisponibles());
         System.out.println();
 
         libro1.Devolucion();
 
         Libro libro2 = new Libro();
 
-        System.out.println("Ingrese el titulo del libro: ");
+        System.out.println("");
+        System.out.print("Ingrese el titulo del libro: ");
         titulo = entrada.nextLine();
-        System.out.println("Ingrese el nombre del autor: ");
+        System.out.print("Ingrese el nombre del autor: ");
         autor = entrada.nextLine();
-        System.out.println("Ingrese la cantidad de ejmplares: ");
+        System.out.print("Ingrese la cantidad de ejmplares: ");
         ejemplares = entrada.nextInt();
 
         libro2.setTitulo(titulo);
         libro2.setAutor(autor);
         libro2.setEjemplares(ejemplares);
 
+        System.out.println("");
         System.out.println("Libro 2:");
         System.out.println("Titulo: " + libro2.getTitulo());
         System.out.println("Autor: " + libro2.getAutor());
         System.out.println("Ejemplares: " + libro2.getEjemplares());
         System.out.println("Prestados: " + libro2.getPrestados());
+        System.out.println("Disponibles para prestar = " + libro2.getDisponibles());;
         System.out.println();
 
         libro2.Prestamo();
