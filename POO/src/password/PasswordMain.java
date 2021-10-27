@@ -13,7 +13,6 @@ public class PasswordMain {
 
         Password listaPassword[] = new Password[tamanio];
         boolean fortalezaPass[] = new boolean [tamanio];
-
         for (int i= 0; i < listaPassword.length; i++) {
             listaPassword[i] = new Password(longitud);
             fortalezaPass[i] = listaPassword[i].esFuerte();
